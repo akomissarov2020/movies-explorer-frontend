@@ -22,10 +22,8 @@ react_snippet = '''import React from 'react';
 
 function %(comp)s(props) {
   return (
-    <>
-      <%(comp)s   
-      />
-    </>
+    <div className="%(comp)s">
+    </div>
   );
 }
 
@@ -33,21 +31,29 @@ export default %(comp)s;
 
 '''
 
+test_snippet = '''import { render, screen } from '@testing-library/react';
+import %(comp)s from './%(comp)s';
+
+test('renders %(comp)s component', () => {
+  render(<%(comp)s />);
+});
+'''
+
 ### Settings section
 
-root = "src"
+root_folder = "src"
 
 resolutions = [1280, 768, 320]
 
 folders = [
-    "components"
+    "components",
     "images",
     "pages",
     "contexts",
     "variables",
     "vendors",
     "utils",
-    "/vendors/fonts",
+    "vendors/fonts",
 ]
 
 files = [
@@ -181,25 +187,25 @@ bem = {
 ### Backbone generation
 
 for folder in folders:
-    folder = os.path.join(root, folder)
+    folder = os.path.join(root_folder, folder)
     if not os.path.isdir(folder):
         os.makedirs(folder)
 
 for file_path in files:
-    file_path = os.path.join(root, file_path)
+    file_path = os.path.join(root_folder, file_path)
     if not os.path.isfile(file_path):
         with open(file_path, "w") as fw:
             content = ""
             fw.write(content)
 
-index_page_css = os.path.join(root, "pages", "index.css")
+index_page_css = os.path.join(root_folder, "pages", "index.css")
 
 with open(index_page_css, "w") as fw_index:
 
     fw_index.write("@import url(../vendors/normalize.css);\n")
     fw_index.write("@import url(../variables/variables.css);\n")
 
-    comp_root = os.path.join(root, "components")
+    comp_root = os.path.join(root_folder, "components")
     for block in components:
         block_folder = os.path.join(comp_root, block)
         if not os.path.isdir(block_folder):
@@ -217,5 +223,10 @@ with open(index_page_css, "w") as fw_index:
             with open(file_path, "w") as fw:
                 content = react_snippet % {"comp": block}
                 fw.write(content)
-                fw_index.write("@import url(../components/%s/%s.css);\n" % (block, block))
+        file_path = os.path.join(block_folder, "%s.test.js" % block)
+        if not os.path.isfile(file_path):
+            with open(file_path, "w") as fw:
+                content = test_snippet % {"comp": block}
+                fw.write(content)
+        fw_index.write("@import url(../components/%s/%s.css);\n" % (block, block))
             

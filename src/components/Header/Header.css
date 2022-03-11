@@ -1,0 +1,17 @@
+.Header {
+}
+
+@media screen and (max-width: 1280px) {
+  .Header {
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .Header {
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .Header {
+  }
+}

@@ -1,0 +1,17 @@
+.Movies {
+}
+
+@media screen and (max-width: 1280px) {
+  .Movies {
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .Movies {
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .Movies {
+  }
+}

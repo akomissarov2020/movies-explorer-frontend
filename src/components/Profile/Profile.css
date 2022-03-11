@@ -1,0 +1,17 @@
+.Profile {
+}
+
+@media screen and (max-width: 1280px) {
+  .Profile {
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .Profile {
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .Profile {
+  }
+}

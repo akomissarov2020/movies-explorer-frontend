@@ -1,0 +1,17 @@
+.Footer {
+}
+
+@media screen and (max-width: 1280px) {
+  .Footer {
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .Footer {
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .Footer {
+  }
+}

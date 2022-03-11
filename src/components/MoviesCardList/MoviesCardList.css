@@ -1,0 +1,17 @@
+.MoviesCardList {
+}
+
+@media screen and (max-width: 1280px) {
+  .MoviesCardList {
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .MoviesCardList {
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .MoviesCardList {
+  }
+}

@@ -1,0 +1,17 @@
+.AboutMe {
+}
+
+@media screen and (max-width: 1280px) {
+  .AboutMe {
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .AboutMe {
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .AboutMe {
+  }
+}

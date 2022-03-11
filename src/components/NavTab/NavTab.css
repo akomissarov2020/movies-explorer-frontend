@@ -1,0 +1,17 @@
+.NavTab {
+}
+
+@media screen and (max-width: 1280px) {
+  .NavTab {
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .NavTab {
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .NavTab {
+  }
+}

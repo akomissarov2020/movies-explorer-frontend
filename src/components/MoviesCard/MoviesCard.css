@@ -1,0 +1,17 @@
+.MoviesCard {
+}
+
+@media screen and (max-width: 1280px) {
+  .MoviesCard {
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .MoviesCard {
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .MoviesCard {
+  }
+}

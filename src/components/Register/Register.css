@@ -1,0 +1,17 @@
+.Register {
+}
+
+@media screen and (max-width: 1280px) {
+  .Register {
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .Register {
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .Register {
+  }
+}

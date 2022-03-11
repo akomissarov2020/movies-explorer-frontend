@@ -1,0 +1,17 @@
+.SearchForm {
+}
+
+@media screen and (max-width: 1280px) {
+  .SearchForm {
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .SearchForm {
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .SearchForm {
+  }
+}

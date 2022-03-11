@@ -1,0 +1,17 @@
+.SavedMovies {
+}
+
+@media screen and (max-width: 1280px) {
+  .SavedMovies {
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .SavedMovies {
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .SavedMovies {
+  }
+}

@@ -1,0 +1,17 @@
+.Promo {
+}
+
+@media screen and (max-width: 1280px) {
+  .Promo {
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .Promo {
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .Promo {
+  }
+}
