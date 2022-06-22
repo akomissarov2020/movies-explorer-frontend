@@ -1,5 +1,5 @@
 import React from 'react';
-import studenPhotoPath from '../../images/student.png';
+import studenPhotoPath from '../../images/student-min.png';
 
 function Bio(props) {
   return (

@@ -1,6 +1,6 @@
 import React from 'react';
 import MoviesCard from '../MoviesCard/MoviesCard';
-import filmImage from '../../images/pic__COLOR_pic.png';
+import filmImage from '../../images/pic__COLOR_pic-min.png';
 
 function MoviesCardList(props) {
   return (
