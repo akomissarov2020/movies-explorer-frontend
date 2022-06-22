@@ -2,8 +2,11 @@ import React from 'react';
 
 function NavTab(props) {
   return (
-    <div className="NavTab">
-    </div>
+    <section className='NavTab'>
+      <a className='NavTab__link' href='/' target='_self'>О проекте</a>
+      <a className='NavTab__link' href='/' target='_self'>Технологии</a>
+      <a className='NavTab__link' href='/' target='_self'>Студент</a>
+    </section>
   );
 }
 

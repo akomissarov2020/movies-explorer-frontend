@@ -1,17 +1,111 @@
 .Profile {
+  margin-top: 74px;
 }
 
-@media screen and (max-width: 1280px) {
-  .Profile {
-  }
+.Profile__greeting {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+  text-align: center;
+  margin: 0 auto 123px auto;
+}
+
+.Profile__values {
+  display: grid;
+  margin: 0 auto 220px auto;
+  max-width: 410px;
+}
+
+.Profile__label {
+  margin: 0;
+  grid-column: 1;
+  margin-right: auto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 13px;
+}
+
+.Profile__value {
+  margin: 0;
+  grid-column: 2;
+  margin-left: auto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 13px;
+}
+
+.Profile__border {
+  margin: 16px 0 17px 0;
+  grid-column: 1 / span 2;
+  border-bottom: 1px solid rgba(232, 232, 232, 1);
+}
+
+.Profile__edit-button {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+  display: flex;
+  text-align: center;
+  display: block;
+  margin: 0 auto 16px auto;
+  color: #000;
+  text-decoration: none;
+}
+
+.Profile__logout-button {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 16px;
+  text-align: center;
+  color: #FF3055;
+  display: block;
+  margin: 0 auto 70px auto;
+  text-decoration: none;
+}
+
+.Profile__edit-button:hover {
+  opacity: 0.6;
+}
+
+.Profile__logout-button:hover {
+  opacity: 0.6;
 }
 
 @media screen and (max-width: 768px) {
   .Profile {
+    margin-top: 236px;
+  }
+
+  .Profile__greeting {
+    margin-bottom: 96px;
+  }
+
+  .Profile__values {
+    margin-bottom: 210px;
   }
 }
 
 @media screen and (max-width: 320px) {
   .Profile {
+    margin-top: 70px;
   }
+
+  .Profile__greeting {
+    margin-bottom: 80px;
+  }
+  
+  .Profile__values {
+    max-width: 280px;
+    margin-bottom: 379px;
+  }
+
+
 }

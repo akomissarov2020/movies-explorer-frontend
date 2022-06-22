@@ -61,6 +61,7 @@ files = [
     "variables/variables.css",
     "pages/index.css",
     "vendors/normalize.css",
+    "contexts/CurrentUserContext.js",
 ]
 
 react_files = [
@@ -122,6 +123,9 @@ components = {
     "Profile": {
 
     },
+    "Bio": {
+
+    },
     "Header": {
 
     },
@@ -134,6 +138,16 @@ components = {
     "ErrorMessage": {
 
     },
+    "ProtectedRoute": {
+
+    },
+    "ProgressBar": {
+
+    },
+    "Error404": {
+
+    },
+
 }
 
 routers = [
@@ -203,6 +217,7 @@ index_page_css = os.path.join(root_folder, "pages", "index.css")
 with open(index_page_css, "w") as fw_index:
 
     fw_index.write("@import url(../vendors/normalize.css);\n")
+    fw_index.write("@import url(../vendors/fonts/inter.css);\n")
     fw_index.write("@import url(../variables/variables.css);\n")
 
     comp_root = os.path.join(root_folder, "components")

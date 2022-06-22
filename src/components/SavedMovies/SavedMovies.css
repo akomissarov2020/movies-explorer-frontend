@@ -1,17 +1,15 @@
 .SavedMovies {
-}
-
-@media screen and (max-width: 1280px) {
-  .SavedMovies {
-  }
+  margin-bottom: 242px;
 }
 
 @media screen and (max-width: 768px) {
   .SavedMovies {
+    margin-bottom: 219px;
   }
 }
 
 @media screen and (max-width: 320px) {
   .SavedMovies {
+    margin-bottom: 150px;
   }
 }
