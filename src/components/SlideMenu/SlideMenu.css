@@ -7,15 +7,19 @@
     right: 0px;
     justify-content: center;
     align-items: center;
-    background-color:rgba(0, 0, 0, 0.5);
+    background-color:rgba(0, 0, 0, 0.3);
     visibility: hidden;
-    z-index: 1;
+    z-index: 1000;
+}
+
+.SlideMenu_active {
+   visibility: visible;
 }
 
 .SlideMenuInner {
-    display: none;
+    display: flex;
     flex-direction: column;
-    height: 800px;
+    height: 100%;
     position: absolute;
     top: 0px;
     right: 0px;
@@ -50,10 +54,14 @@
 
 .SlideMenu__profile-group {
     margin: 0 auto;
+    margin-bottom: 92px;
+    max-height: 30px;
 }
 
 .SlideMenu__link_active {
-    text-decoration: underline;;
+    text-decoration: underline;
+    text-underline-offset: 10px;
+    text-decoration-thickness: 2px;
 }
 
 .SlideMenu__profile-link {
@@ -65,6 +73,7 @@
     line-height: 16px;
     color: var(--black-text);
     transition: opacity 0.2s ease-in;
+    margin-right: 13px;
 }
 
 .SlideMenu__profile-link:hover {
@@ -73,6 +82,7 @@
 
 .SlideMenu__profile-icon {
     display: inline-block;
+    vertical-align: middle;
     border-radius: 6px;
     width: 30px;
     height: 30px;
@@ -85,8 +95,8 @@
 
 .SlideMenu__close-button {
     position: absolute;
-    width: 22px;
-    height: 22px;
+    width: 30px;
+    height: 30px;
     top: 23px;
     right: 23px;
     background-color: transparent;
@@ -100,8 +110,8 @@
     opacity: 0.6;
 }
 
-@media screen and (max-width: 768px) {
-    .SlideMenu {
-        display: flex;
+@media screen and (max-width: 500px) {
+    .SlideMenuInner {
+        width: 320px;
     }
 }
