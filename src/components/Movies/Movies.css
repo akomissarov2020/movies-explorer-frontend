@@ -11,7 +11,6 @@
   border: none;
   background: #F9F9F9;
   border-radius: 6px;
-  font-family: 'Inter';
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
@@ -27,15 +26,12 @@
 }
 
 @media screen and (max-width: 768px) {
-  .Movies {
-  }
-
+  
   .Movies__more-button {
     margin: 50px auto 80px auto;
   }
 }
 
 @media screen and (max-width: 320px) {
-  .Movies {
-  }
+  
 }

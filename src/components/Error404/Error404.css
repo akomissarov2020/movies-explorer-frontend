@@ -4,7 +4,6 @@
 
 .Error404__text {
   margin: 0 auto 5px auto;
-  font-family: 'Inter';
   font-style: normal;
   font-weight: 400;
   font-size: 140px;
@@ -15,7 +14,6 @@
 
 .Error404__message {
   margin: 0 auto 184px auto;
-  font-family: 'Inter';
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -27,7 +25,6 @@
 .Error404__back-button {
   margin: 0 auto;
   display: block;
-  font-family: 'Inter';
   font-style: normal;
   font-weight: 400;
   font-size: 14px;

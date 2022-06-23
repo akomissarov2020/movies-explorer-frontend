@@ -14,24 +14,22 @@
 
 .Register__link-hint {
   display: inline;
-  font-family: 'Inter';
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
   text-align: center;
-  color: #A0A0A0;
+  color: var(--dark-gray);
   margin-right: 6px;
 }
 
 .Register__back-link {
-  font-family: 'Inter';
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
   text-align: center;
-  color: #3456F3;
+  color: var(--blue);
   text-decoration: none;
 }
 

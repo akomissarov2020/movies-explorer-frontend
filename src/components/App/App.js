@@ -50,9 +50,7 @@ function App(props) {
               <Main />
           } />
           <Route exact path="/movies" element={
-              <>
-                <Movies />
-              </>
+              <Movies />
           } />
           <Route exact path="/saved-movies" element={
               <SavedMovies />
@@ -81,7 +79,7 @@ function App(props) {
               <Footer />
           } />
           <Route path="/edit" element={
-            <Navigate to="/profile  " />
+            <Navigate to="/profile" />
           } />
           <Route path="/signout" element={
             <Navigate to="/" />

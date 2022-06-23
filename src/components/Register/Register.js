@@ -1,5 +1,4 @@
 import React from 'react';
-import headerLogoPath from '../../images/logo.svg';
 import Form from '../Form/Form';
 import { Link, useNavigate } from 'react-router-dom';
 

@@ -14,7 +14,6 @@
 
 .Login__link-hint {
   display: inline;
-  font-family: 'Inter';
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -25,13 +24,12 @@
 }
 
 .Login__back-link {
-  font-family: 'Inter';
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
   text-align: center;
-  color: #3456F3;
+  color: var(--blue);
   text-decoration: none;
 }
 

@@ -21,6 +21,7 @@
   padding: 20px 0 20px 0;
   margin: 0 auto;
   border-top: 1px solid var(--gray-lines);
+  list-style: none;
 }
 
 .Footer__copyright {
@@ -45,7 +46,7 @@
   }
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 550px) {
   .Footer {
     padding: 79px 14px 10px 14px;
   }
