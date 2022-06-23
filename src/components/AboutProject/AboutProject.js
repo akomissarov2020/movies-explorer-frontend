@@ -3,7 +3,7 @@ import ProgressBar from '../ProgressBar/ProgressBar';
 
 function AboutProject(props) {
   return (
-    <section className="AboutProject">
+    <section className="AboutProject" id="project">
       <h2 className='AboutProject__header'>О проекте</h2>
       <div className='AboutProject__articles'>
         <h3 className='AboutProject__subheader'>Дипломный проект включал 5 этапов</h3>
