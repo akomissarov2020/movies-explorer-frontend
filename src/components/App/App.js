@@ -38,13 +38,8 @@ function App(props) {
           <Route exact path="/profile" element={
               <Header onLogout={toBeImplemeted} dark={false} />
           } />
-          <Route exact path="/signin" element={
-              <Header onLogout={toBeImplemeted} dark={false} />
-          } />
-          <Route exact path="/signup" element={
-              <Header onLogout={toBeImplemeted} dark={false} />
-          } />
         </Routes>
+        
         <Routes>  
           <Route exact path="/" element={
               <Main />

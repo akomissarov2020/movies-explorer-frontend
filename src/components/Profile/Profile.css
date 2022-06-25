@@ -3,7 +3,6 @@
 }
 
 .Profile__greeting {
-  font-family: 'Inter';
   font-style: normal;
   font-weight: 500;
   font-size: 24px;
@@ -45,7 +44,6 @@
 }
 
 .Profile__edit-button {
-  font-family: 'Inter';
   font-style: normal;
   font-weight: 400;
   font-size: 13px;
@@ -59,7 +57,6 @@
 }
 
 .Profile__logout-button {
-  font-family: 'Inter';
   font-style: normal;
   font-weight: 500;
   font-size: 13px;

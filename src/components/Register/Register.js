@@ -1,5 +1,6 @@
 import React from 'react';
 import Form from '../Form/Form';
+import headerLogoPath from '../../images/logo.svg';
 import { Link, useNavigate } from 'react-router-dom';
 
 function Register(props) {
@@ -28,6 +29,9 @@ function Register(props) {
 
   return (
     <div className="Register">
+      <Link to="/" className="Register__logo" target="_self">
+        <img src={headerLogoPath} alt="Логотип проекта" />
+      </Link>
       <Form
         name="login"
         title="Добро пожаловать!"

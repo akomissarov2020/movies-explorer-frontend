@@ -34,6 +34,9 @@ function Login(props) {
 
   return (
     <div className="Login">
+      <Link to="/" className="Login__logo" target="_self">
+        <img src={headerLogoPath} alt="Логотип проекта" />
+      </Link>
       <Form
         name="login"
         title="Рады видеть!"
