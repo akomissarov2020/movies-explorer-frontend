@@ -44,6 +44,9 @@
 }
 
 .Portfolio__arrow {
+  background: none;
+  border: 0;
+  padding: 0;
   color: var(--black-text);
   width: 18px;
   height: 17px;

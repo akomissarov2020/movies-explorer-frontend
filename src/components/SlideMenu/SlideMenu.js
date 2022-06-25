@@ -13,7 +13,7 @@ function SlideMenu(props) {
                 <Link className="SlideMenu__profile-link" to="/profile" target="_self">Аккаунт</Link>
                 <span className="SlideMenu__profile-icon" />
             </div>
-            <span className="SlideMenu__close-button" onClick={props.onClose}/>
+            <button className="SlideMenu__close-button" onClick={props.onClose}/>
         </div>
     </div>
   );

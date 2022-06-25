@@ -90,7 +90,7 @@
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 600px) {
   .Profile {
     margin-top: 70px;
   }

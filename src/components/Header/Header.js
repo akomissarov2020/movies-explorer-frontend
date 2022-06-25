@@ -33,7 +33,7 @@ function Header(props) {
           <Link className="Header__link Header__link_light" to="/saved-movies" target="_self">Сохранённые фильмы</Link>
           <Link className="Header__profile-link" to="/profile" target="_self">Аккаунт</Link>
           <span className="Header__profile-icon" />
-          <span className="Header__more-button" onClick={showSlideMenu} />
+          <button className="Header__more-button" onClick={showSlideMenu} />
           <SlideMenu 
             active={sideMenuShown}
             onClose={sideMenuHided}
