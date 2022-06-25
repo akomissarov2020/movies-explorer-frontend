@@ -14,7 +14,7 @@ function SearchForm(props) {
     <div className='SearchForm'>
       <form>
         <div className='SearchForm__field-container'>
-          <input type='text' className='SearchForm__field' placeholder='Фильм' />
+          <input type='text' className='SearchForm__field' placeholder='Фильм' required minLength="3" />
           <button className='SearchForm__button'>Поиск</button>
         </div>
         <FilterCheckbox
