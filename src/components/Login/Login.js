@@ -10,10 +10,12 @@ function Login(props) {
   const navigate = useNavigate();
 
   function handleChangeEmail(e) {
+    e.target.focus();
     setEmail(e.target.value);
   }
 
   function handleChangePassword(e) {
+    e.target.focus();
     setPassword(e.target.value);
   }
 

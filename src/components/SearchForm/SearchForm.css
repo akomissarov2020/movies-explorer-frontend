@@ -21,15 +21,16 @@
   line-height: 20px;
 }
 
+.SearchForm__field:focus{
+  outline: none;
+  border: 1.5px solid var(--dark-gray);
+}
+
 .SearchForm__field::placeholder {
   font-weight: 400;
   font-size: 18px;
   line-height: 20px;
   color: var(--dark-gray);
-}
-
-.SearchForm__field:focus{
-  outline: none;
 }
 
 .SearchForm__button {

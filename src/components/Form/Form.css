@@ -45,14 +45,14 @@
     margin-bottom: 24px;
 }
 
-.Form__field:focus{
-    outline: none;
-    border-bottom: 1px solid #3456F3;
-}
-
 .Form__field:invalid{
     color: #FF3055;
     border-bottom: 1px solid #E8E8E8;;
+}
+
+.Form__field:focus{
+    outline: none;
+    border-bottom: 1px solid #3456F3;
 }
 
 .Form__input-group:last-of-type {
