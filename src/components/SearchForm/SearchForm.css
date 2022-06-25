@@ -58,7 +58,7 @@
 
 @media screen and (max-width: 768px) {
   .SearchForm {
-    margin: 70px 14px 50px 14px;
+    margin: 70px 30px 80px 30px;
     padding-bottom: 63px;
   }
 
@@ -87,7 +87,8 @@
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 550px) {
   .SearchForm {
+    margin: 70px 14px 50px 14px;
   }
 }

@@ -133,7 +133,7 @@
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 550px) {
   .Header {
     padding: 0 14px 0 14px;
     font-size: 10px;

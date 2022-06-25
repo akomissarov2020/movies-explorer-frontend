@@ -56,7 +56,7 @@
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 450px) {
   .AboutProject {
     margin: 70px 18px 70px 18px;
   }
