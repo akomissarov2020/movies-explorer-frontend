@@ -23,6 +23,9 @@
 }
 
 .Error404__back-button {
+  background: none;
+  cursor: pointer;
+  border: none;
   margin: 0 auto;
   display: block;
   font-style: normal;
