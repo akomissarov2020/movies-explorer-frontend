@@ -52,6 +52,11 @@
   transition: opacity 0.2s ease-in;
 }
 
+.SearchForm__button_inactive {
+  color: #808080;
+  cursor: not-allowed;
+}
+
 .SearchForm__button:hover {
   opacity: 0.6;
 }

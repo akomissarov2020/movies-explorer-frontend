@@ -55,6 +55,7 @@
   font-weight: 400;
 }
 
+
 .Header__profile-link {
   margin-left: auto;
   margin-right: 13px;
@@ -114,6 +115,11 @@
 .Header__inlink:hover {
   opacity: 0.6;
 }
+
+.Header__link_white {
+  color: var(--text);
+}
+
 
 @media screen and (max-width: 768px) {
   .Header {

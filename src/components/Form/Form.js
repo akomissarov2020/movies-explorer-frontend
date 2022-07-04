@@ -1,12 +1,24 @@
 import React from 'react';
 
 function Form(props) {
+
   return (
-    <form className="Form" name={props.name} onSubmit={props.onSubmit}>
+    <form className="Form" name={props.name} onSubmit={props.onSubmit} noValidate>
     <h2 className="Form__title">{props.title}</h2>
     {props.children}
-    <button type="submit" className="Form__save-button">
-        {props.isLoading ? props.loadingText : props.buttonText}
+    <div className="form__error-container">
+      <p className="form__error-message">{props.errorFromServer}</p>
+    </div>
+    <button type="submit" className={
+      (Object.keys(props.errors).length === 0 && props.changed) 
+        ? 
+        `Form__save-button` 
+        : 
+        `Form__save-button Form__save-button_inactive`}
+
+      disabled={Object.keys(props.errors).length !== 0}
+    >
+        {props.buttonText}
     </button>
     </form>
   );
