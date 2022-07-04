@@ -24,7 +24,9 @@ function ValidatedForm(initialValues, callback, validate, setErrorFromServer) {
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors(validate(values));
-    callback(values);
+    if (validate(values)) {
+      callback(values);
+    }
   };
 
   return {

@@ -71,7 +71,8 @@ function App() {
           setCurrentUser({name: user.name, email: user.email})
         })
         .catch((err) => {
-          throw Error(err);
+          console.log(`Error: ${err.status}`);
+          setErrorFromServer(`Error: ${err.status}`);
         });
       getUserMovies(result.data.token);
     })
