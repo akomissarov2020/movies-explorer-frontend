@@ -69,12 +69,12 @@ function Movies(props) {
   }
 
   function handleSearchSubmit(e) {
-    setIsLoading(true);
     e.preventDefault();
     if (searchQuery.length === 0) {
       props.setErrorFromServer("Нужно ввести ключевое слово");
       return;
     }
+    setIsLoading(true);
     props.setErrorFromServer("");
     setMoviesToShow([]);
     setFilteredMovies([]);

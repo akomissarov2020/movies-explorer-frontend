@@ -3,7 +3,6 @@ import React from 'react';
 function MoviesCard(props) {
 
   const [active, setActive] = React.useState(false);
-  const [saved, setSaved] = React.useState(props.saved);
 
   function onClick() {
     window.open(props.trailerLink, '_blank');
@@ -11,12 +10,10 @@ function MoviesCard(props) {
 
   function handleMovieSave() {
     props.handleMovieSave(props.movie);
-    setSaved(true);
   }
 
   function handleMovieRemove() {
     props.handleMovieRemove(props.id);
-    setSaved(false);
   }
 
   return (
@@ -33,8 +30,8 @@ function MoviesCard(props) {
         <p className="MoviesCard__duration">{props.duration}</p>
       </div>
       {props.deletable && active && (<button className="MoviesCard__delete-button" onClick={handleMovieRemove} />)}
-      {!props.deletable && saved && (<div className="MoviesCard__saved-icon" onClick={handleMovieRemove} />)}
-      {!props.deletable && active && !saved && (<button className="MoviesCard__save-button" onClick={handleMovieSave}>Сохранить</button>)}
+      {!props.deletable && props.saved && (<div className="MoviesCard__saved-icon" onClick={handleMovieRemove} />)}
+      {!props.deletable && active && !props.saved && (<button className="MoviesCard__save-button" onClick={handleMovieSave}>Сохранить</button>)}
     </div>
   );
 }

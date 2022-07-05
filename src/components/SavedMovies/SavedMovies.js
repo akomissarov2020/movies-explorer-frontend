@@ -16,6 +16,7 @@ function SavedMovies(props) {
   const [isLoading, setIsLoading] = React.useState();
   
   React.useEffect(() => {
+    props.loadMovieFromServer();
     filterMovies(getCurrentUserMovies(), searchQuery);
   }, [])  
   

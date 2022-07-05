@@ -75,8 +75,8 @@ function App() {
         .then((user) => {
           setCurrentUser({name: user.name, email: user.email})
           setIsLoggedIn(true);
-          loadMovieFromServer();
           localStorage.setItem('isLoggedIn', true);
+          loadMovieFromServer();
           getUserMovies(result.data.token);
           navigate("/movies");
         })
@@ -219,7 +219,7 @@ function App() {
                   handleMovieRemove={handleMovieRemove}
                   errorFromServer={errorFromServer}
                   setErrorFromServer={setErrorFromServer}
-                  loadData={loadMovieFromServer}
+                  loadMovieFromServer={loadMovieFromServer}
                 />
                 <Footer />
                 </ProtectedRoute>
