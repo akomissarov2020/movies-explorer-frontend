@@ -36,14 +36,14 @@ function Profile(props) {
             <span className="Form__error-message">{errors.name}</span>
           )}
           <p className="Profile__label">Имя</p>
-          <input type="text" className="Profile__value" name="name" value={values.name || ''} onChange={handleChange} />
+          <input type="text" className="Profile__value" name="name" value={values.name || currentUser.name} onChange={handleChange} />
           {errors.email && (
             <span className="Form__error-message">{errors.email}</span>
           )}
           <div className="Profile__border" />
 
           <p className="Profile__label">E-mail</p>
-          <input type="email" className="Profile__value" name="email" value={values.email || ''} onChange={handleChange} />
+          <input type="email" className="Profile__value" name="email" value={values.email || currentUser.email} onChange={handleChange} />
           
           <div className="form__error-container">
             <p className="form__error-message">{props.errorFromServer}</p>
