@@ -23,7 +23,7 @@ function Movies(props) {
     false
   });
 
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [datasetSize, setDatasetsize] = useState(false);
   const [filteredMovies, setFilteredMovies] = useState([])
   const [moviesToShow, setMoviesToShow] = useState(filteredMovies.slice(0, GetNumberOfCardAccordingToWidth()));
@@ -32,7 +32,6 @@ function Movies(props) {
 
   useEffect(() => {
     setMoviesToShow(filteredMovies.slice(0, sizeOfCardBatch));
-    setIsLoading(false);
     if (filteredMovies.length === 0 && datasetSize > 0) {
       props.setErrorFromServer("Ничего не найдено");
     } else if (datasetSize === 0) {
@@ -87,6 +86,7 @@ function Movies(props) {
     }
     
     filterMovies(movies, searchQuery);
+    setIsLoading(false);
   }
 
   return (
