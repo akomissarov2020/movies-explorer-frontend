@@ -63,10 +63,6 @@ function Movies(props) {
     }
   }
 
-  function sliceFilteredMovies() {
-      setMoviesToShow(moviesToShow.concat(filteredMovies.slice(moviesToShow.length, moviesToShow.length + sizeOfCardBatch)));
-  }
-
   function handleSearchSubmit(e) {
     setIsLoading(true);
     e.preventDefault();

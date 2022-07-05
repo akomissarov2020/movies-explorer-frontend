@@ -2,7 +2,6 @@ import React from 'react';
 import SearchForm from '../SearchForm/SearchForm';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import Preloader from '../Preloader/Preloader';
-import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import {filterByDuration, filterByQuery} from '../../utils/filters';
 
 function SavedMovies(props) {
@@ -23,8 +22,6 @@ function SavedMovies(props) {
     false
   });
 
-  const {userMovies, setUserMovies} = React.useContext(CurrentUserContext);
-
   const [moviesToShow, setMoviesToShow] = React.useState(getCurrentUserMovies());
   
   React.useEffect(() => {
@@ -33,7 +30,7 @@ function SavedMovies(props) {
   
   React.useEffect(() => {
     filterMovies(getCurrentUserMovies(), searchQuery);
-  }, [userMovies, filterShortFilms])
+  }, [filterShortFilms])
 
   React.useEffect(() => {
     if (moviesToShow.length === 0) {

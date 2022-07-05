@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import ValidatedForm from '../ValidatedForm/ValidatedForm';
 import { validateProfileForm } from '../../utils/validators';
 import {CurrentUserContext} from '../../contexts/CurrentUserContext';

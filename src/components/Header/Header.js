@@ -27,9 +27,9 @@ function Header(props) {
         <Link className="Header__reglink" to="/signup" target="_self">Регистрация</Link>
         <Link className="Header__inlink" to="/signin" target="_self">Войти</Link>
         </>) : (<>
-          <Link className={`Header__link ${props.parent != "/movies" && "Header__link_light"} ${props.dark && "Header__link_white"} `}
+          <Link className={`Header__link ${props.parent !== "/movies" && "Header__link_light"} ${props.dark && "Header__link_white"} `}
                 to="/movies" target="_self">Фильмы</Link>
-          <Link className={`Header__link ${props.parent != "/saved-movies" && "Header__link_light"} ${props.dark && "Header__link_white"}`}
+          <Link className={`Header__link ${props.parent !== "/saved-movies" && "Header__link_light"} ${props.dark && "Header__link_white"}`}
                 to="/saved-movies" target="_self">Сохранённые фильмы</Link>
           <Link className={`Header__profile-link ${props.dark && "Header__link_white"}`} to="/profile" target="_self">Аккаунт</Link>
           <span className="Header__profile-icon" />

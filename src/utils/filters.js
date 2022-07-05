@@ -7,10 +7,6 @@ export function filterByDuration(movies, isShort) {
   return movies;
 }
 
-function isOnlyLatinCharacters(title) {
-  return /^[a-zA-Z]+$/.test(title);
-}
-
 export function filterByQuery(movies, query) {
   let r = movies.filter(
     (item) => {

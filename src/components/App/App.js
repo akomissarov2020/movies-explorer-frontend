@@ -183,7 +183,7 @@ function App() {
   }
 
   return (
-    <CurrentUserContext.Provider value={{currentUser, userMovies, setUserMovies}}>
+    <CurrentUserContext.Provider value={{currentUser}}>
       <BrowserRouter>
         <Routes>  
             <Route exact path="/movies" element={
