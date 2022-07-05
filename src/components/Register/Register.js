@@ -16,6 +16,10 @@ function Register(props) {
     changed,
   } = ValidatedForm({}, props.handleSubmit, validateRegisterForm, props.setErrorFromServer);
 
+  React.useEffect(() => {
+    props.setErrorFromServer("");
+  }, []);
+
   return (
     <div className="Register">
       <Link to="/" className="Register__logo" target="_self">

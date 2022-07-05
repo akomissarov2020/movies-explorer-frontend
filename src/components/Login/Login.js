@@ -15,6 +15,10 @@ function Login(props) {
     changed,
   } = ValidatedForm({}, props.handleSubmit, validateLoginForm, props.setErrorFromServer);
 
+  React.useEffect(() => {
+    props.setErrorFromServer("");
+  }, []);
+
   return (
     <div className="Login">
       <Link to="/" className="Login__logo" target="_self">
