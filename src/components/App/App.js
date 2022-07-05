@@ -76,13 +76,13 @@ function App() {
           setCurrentUser({name: user.name, email: user.email})
           setIsLoggedIn(true);
           localStorage.setItem('isLoggedIn', true);
+          getUserMovies(result.data.token);
+          navigate("/movies");
         })
         .catch((err) => {
           console.log(`Error: ${err.status}`);
           setErrorFromServer(`Error: ${err.status}`);
         });
-      getUserMovies(result.data.token);
-      navigate("/movies");
     })
     .catch((err) => {
       if (err.status === 400) {
@@ -119,7 +119,6 @@ function App() {
     auth_api.register(data) 
     .then((result) => {
       handleLogin(data);
-      navigate("/movies");
     })
     .catch((err) => {
       if (err.status === 409) {
