@@ -30,7 +30,7 @@ function SavedMovies(props) {
   
   React.useEffect(() => {
     filterMovies(getCurrentUserMovies(), searchQuery);
-  }, [filterShortFilms])
+  }, [filterShortFilms, props.userMovies])
 
   React.useEffect(() => {
     if (moviesToShow.length === 0) {
