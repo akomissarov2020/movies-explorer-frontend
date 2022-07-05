@@ -100,8 +100,8 @@ class AuthApi {
                 'Authorization' : `Bearer ${jwt}`
             },
             body: JSON.stringify({
-                country: data.country || "Unknown",
-                director: data.director || "Unknown",
+                country: data.country,
+                director: data.director,
                 duration: data.duration, 
                 year: data.year,
                 description: data.description,
