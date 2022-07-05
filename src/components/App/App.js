@@ -35,6 +35,7 @@ function App() {
         })
         .catch((err) => {
           console.log(err);
+          setErrorFromServer(`Error: ${err.status}`);
         })
       }
    }, []);
@@ -139,7 +140,6 @@ function App() {
   function handleMovieSave(data) {
     auth_api.addMovie(jwt, data)
       .then((res) => {
-        console.log(res);
         setUserMovies((userMovies) => ({...userMovies, [data.id]: res._id}))
       })
       .catch((err) => {
@@ -152,7 +152,6 @@ function App() {
     const movieId = userMovies[id];
     auth_api.deleteMovie(jwt, movieId)
     .then((res) => {
-      console.log(res);
       setUserMovies((userMovies) => {
         const state = {...userMovies};
         delete state[id];
