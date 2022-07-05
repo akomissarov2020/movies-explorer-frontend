@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
+import { Route, Routes, Navigate, useNavigate } from 'react-router-dom';
 import {CurrentUserContext} from '../../contexts/CurrentUserContext';
 import Header from '../Header/Header';
 import Main from '../Main/Main';
@@ -23,6 +23,8 @@ function App() {
   const [moviesData, setMoviesData] = React.useState([]);
   const [userMovies, setUserMovies] = React.useState({});
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     setErrorFromServer("");
     if (jwt) {
@@ -30,10 +32,13 @@ function App() {
         .then((result) => {
           setCurrentUser({name: result.name, email: result.email})
           getUserMovies(jwt);
-          setIsLoggedIn(true);
           loadMovieFromServer();
+          setIsLoggedIn(true);
+          localStorage.setItem('isLoggedIn', true);
         })
         .catch((err) => {
+          setIsLoggedIn(false);
+          localStorage.setItem('isLoggedIn', false);
           console.log(err);
           setErrorFromServer(`Error: ${err.status}`);
         })
@@ -66,16 +71,18 @@ function App() {
     .then((result) => {
       localStorage.setItem('jwt', result.data.token);
       setJwt(localStorage.getItem("jwt"));
-      setIsLoggedIn(true);
       auth_api.getUser(result.data.token) 
         .then((user) => {
           setCurrentUser({name: user.name, email: user.email})
+          setIsLoggedIn(true);
+          localStorage.setItem('isLoggedIn', true);
         })
         .catch((err) => {
           console.log(`Error: ${err.status}`);
           setErrorFromServer(`Error: ${err.status}`);
         });
       getUserMovies(result.data.token);
+      navigate("/movies");
     })
     .catch((err) => {
       if (err.status === 400) {
@@ -112,6 +119,7 @@ function App() {
     auth_api.register(data) 
     .then((result) => {
       handleLogin(data);
+      navigate("/movies");
     })
     .catch((err) => {
       if (err.status === 409) {
@@ -168,12 +176,14 @@ function App() {
   function handleLogout() {
     auth_api.logout(jwt)
     .then((res) => {
+      localStorage.removeItem('isLoggedIn');
       localStorage.removeItem('jwt');
       localStorage.removeItem('searchQuery');
       localStorage.removeItem('filterShortFilms');
       localStorage.removeItem('allMovies');
       setUserMovies({});
       setIsLoggedIn(false);
+      navigate("/");
     })
     .catch((err) => {
       console.log(`Error: ${err.status}`);
@@ -183,10 +193,10 @@ function App() {
 
   return (
     <CurrentUserContext.Provider value={{currentUser}}>
-      <BrowserRouter>
+      
         <Routes>  
             <Route exact path="/movies" element={
-              <ProtectedRoute isLoggedIn={isLoggedIn}>
+              <ProtectedRoute>
                   <Header onLogout={handleLogout} isLogined={isLoggedIn} dark={false} parent="/movies"/>
                   <Movies 
                     handleSearchSubmit={handleSearchSubmit}
@@ -201,7 +211,7 @@ function App() {
                 </ProtectedRoute>
             } />
             <Route exact path="/saved-movies" element={
-              <ProtectedRoute isLoggedIn={isLoggedIn}>
+              <ProtectedRoute>
                 <Header onLogout={handleLogout} isLogined={isLoggedIn} dark={false} parent="/saved-movies"/>
                 <SavedMovies 
                   handleSearchSubmit={handleSearchSubmit}
@@ -216,7 +226,7 @@ function App() {
                 </ProtectedRoute>
             } />
             <Route exact path="/profile" element={
-              <ProtectedRoute isLoggedIn={isLoggedIn}>
+              <ProtectedRoute>
                 <Header onLogout={handleLogout} isLogined={isLoggedIn} dark={false} />
                 <Profile 
                   handleProfileEdit={handleProfileEdit}
@@ -269,7 +279,6 @@ function App() {
             } />  
             
         </Routes>
-      </BrowserRouter>
     </CurrentUserContext.Provider>
   );
 }
