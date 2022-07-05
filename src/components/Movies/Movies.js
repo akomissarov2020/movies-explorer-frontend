@@ -31,6 +31,10 @@ function Movies(props) {
   let sizeOfCardBatch =  GetNumberOfCardAccordingToWidth()();
 
   useEffect(() => {
+    props.setErrorFromServer("");
+  }, []);
+
+  useEffect(() => {
     setMoviesToShow(filteredMovies.slice(0, sizeOfCardBatch));
     if (filteredMovies.length === 0 && datasetSize > 0) {
       props.setErrorFromServer("Ничего не найдено");

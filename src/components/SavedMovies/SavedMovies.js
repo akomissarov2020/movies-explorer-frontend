@@ -13,7 +13,7 @@ function SavedMovies(props) {
   const [moviesToShow, setMoviesToShow] = React.useState(getCurrentUserMovies());
   
   React.useEffect(() => {
-    getCurrentUserMovies();
+    filterMovies(getCurrentUserMovies(), searchQuery);
   }, [])  
   
   React.useEffect(() => {

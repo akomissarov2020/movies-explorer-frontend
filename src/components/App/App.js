@@ -75,6 +75,7 @@ function App() {
         .then((user) => {
           setCurrentUser({name: user.name, email: user.email})
           setIsLoggedIn(true);
+          loadMovieFromServer();
           localStorage.setItem('isLoggedIn', true);
           getUserMovies(result.data.token);
           navigate("/movies");
