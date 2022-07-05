@@ -23,10 +23,10 @@ function Movies(props) {
     false
   });
 
-  const [isLoading, setIsLoading] = useState(true);
   const [datasetSize, setDatasetsize] = useState(false);
   const [filteredMovies, setFilteredMovies] = useState([])
   const [moviesToShow, setMoviesToShow] = useState(filteredMovies.slice(0, GetNumberOfCardAccordingToWidth()));
+  const [isLoading, setIsLoading] = useState(!moviesToShow && moviesToShow.length === 0);
 
   let sizeOfCardBatch =  GetNumberOfCardAccordingToWidth()();
 
