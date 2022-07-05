@@ -6,12 +6,16 @@ function SearchForm(props) {
   function onFilterShortFilmsClick(e) {
     e.preventDefault();
     props.setFilterShortFilms(!props.filterShortFilms);
-    localStorage.setItem('filterShortFilms', JSON.stringify(!props.filterShortFilms));
+    if (props.saveResults) {
+      localStorage.setItem('filterShortFilms', JSON.stringify(!props.filterShortFilms));
+    }
   }
 
   function handleSearchQuery(e) {
     props.setErrorFromServer("");
-    localStorage.setItem('searchQuery', JSON.stringify(e.target.value));
+    if (props.saveResults) {
+      localStorage.setItem('searchQuery', JSON.stringify(e.target.value));
+    }
     props.setSearchQuery(e.target.value)
   }
   

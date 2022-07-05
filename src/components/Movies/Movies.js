@@ -95,7 +95,8 @@ function Movies(props) {
         filterShortFilms={filterShortFilms}
         setFilterShortFilms={setFilterShortFilms}
         setErrorFromServer={props.setErrorFromServer}
-        isLoading={props.isLoading }
+        isLoading={props.isLoading}
+        saveResults={true}
       />
       <Preloader errorFromServer={props.errorFromServer} isLoading={isLoading}/>
       <>

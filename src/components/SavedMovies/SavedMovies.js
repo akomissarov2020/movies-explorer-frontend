@@ -6,21 +6,9 @@ import {filterByDuration, filterByQuery} from '../../utils/filters';
 
 function SavedMovies(props) {
 
-  const [searchQuery, setSearchQuery] = React.useState(() => {
-    return localStorage.getItem('searchQuery') 
-    ? 
-      JSON.parse(localStorage.getItem('searchQuery')) 
-      : 
-      ''
-  });
+  const [searchQuery, setSearchQuery] = React.useState('');
 
-  const [filterShortFilms, setFilterShortFilms] = React.useState(() => {
-    return localStorage.getItem('filterShortFilms') 
-    ? 
-    JSON.parse(localStorage.getItem('filterShortFilms')) 
-    : 
-    false
-  });
+  const [filterShortFilms, setFilterShortFilms] = React.useState(false);
 
   const [moviesToShow, setMoviesToShow] = React.useState(getCurrentUserMovies());
   
@@ -67,6 +55,7 @@ function SavedMovies(props) {
         filterShortFilms={filterShortFilms}
         setFilterShortFilms={setFilterShortFilms}
         setErrorFromServer={props.setErrorFromServer}
+        saveResults={false}
       />
       <Preloader errorFromServer={props.errorFromServer} isLoading={props.isLoading}/>
       <>
