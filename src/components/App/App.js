@@ -170,7 +170,6 @@ function App() {
       console.log(`Error: ${err.status}`);
       setErrorFromServer(`Error: ${err.status}`);
     })
-    console.log("handleMovieRemove", userMovies);
   }
 
   function handleLogout() {

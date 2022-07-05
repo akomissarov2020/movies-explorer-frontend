@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react';
 import SearchForm from '../SearchForm/SearchForm';
 import Preloader from '../Preloader/Preloader';
+import Errors from '../Errors/Errors';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import GetNumberOfCardAccordingToWidth from '../../utils/resizer';
 import {filterByDuration, filterByQuery} from '../../utils/filters';
@@ -26,7 +27,7 @@ function Movies(props) {
   const [datasetSize, setDatasetsize] = useState(false);
   const [filteredMovies, setFilteredMovies] = useState([])
   const [moviesToShow, setMoviesToShow] = useState(filteredMovies.slice(0, GetNumberOfCardAccordingToWidth()));
-  const [isLoading, setIsLoading] = useState(!moviesToShow && moviesToShow.length === 0);
+  const [isLoading, setIsLoading] = useState();
 
   let sizeOfCardBatch =  GetNumberOfCardAccordingToWidth()();
 
@@ -77,17 +78,20 @@ function Movies(props) {
     props.setErrorFromServer("");
     setMoviesToShow([]);
     setFilteredMovies([]);
-    const movies = props.handleSearchSubmit(searchQuery, filterShortFilms);
-    if (!movies) {
-      setDatasetsize(0);
-      props.setErrorFromServer("Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз");
-    } else {
-      setDatasetsize(movies.length);
-    }
-    
-    filterMovies(movies, searchQuery);
-    setIsLoading(false);
+    setTimeout(()=>{
+      const movies = props.handleSearchSubmit(searchQuery, filterShortFilms);
+      if (!movies) {
+        setDatasetsize(0);
+        props.setErrorFromServer("Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз");
+      } else {
+        setDatasetsize(movies.length);
+      }
+      
+      filterMovies(movies, searchQuery);
+      setIsLoading(false);
+    }, 1000);
   }
+  
 
   return (
     <div className="Movies">
@@ -102,7 +106,8 @@ function Movies(props) {
         isLoading={props.isLoading}
         saveResults={true}
       />
-      <Preloader errorFromServer={props.errorFromServer} isLoading={isLoading}/>
+      <Preloader isLoading={isLoading}/>
+      <Errors errorFromServer={props.errorFromServer} isLoading={isLoading} />
       <>
         <MoviesCardList 
           moviesData={moviesToShow}

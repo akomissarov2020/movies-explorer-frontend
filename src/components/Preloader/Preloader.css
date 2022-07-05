@@ -48,13 +48,19 @@
 }
 
 .preloader__container {
+    width: 100px;
+    height: 100px;
+    position: relative;
+}
+
+.preloader__errors {
     width: 320px;
     height: 100px;
     position: relative;
 }
 
 .preloader__round {
-    width: 320px;
+    width: 100px;
     height: 100px;
     position: absolute;
     top: 0;
@@ -66,7 +72,7 @@
 .preloader__round::after,
 .preloader__round::before {
     content: '';
-    width: 320px;
+    width: 100px;
     height: 100px;
     position: absolute;
     top: 0;

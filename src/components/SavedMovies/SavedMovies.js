@@ -3,6 +3,7 @@ import SearchForm from '../SearchForm/SearchForm';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import Preloader from '../Preloader/Preloader';
 import {filterByDuration, filterByQuery} from '../../utils/filters';
+import Errors from '../Errors/Errors';
 
 function SavedMovies(props) {
 
@@ -11,6 +12,8 @@ function SavedMovies(props) {
   const [filterShortFilms, setFilterShortFilms] = React.useState(false);
 
   const [moviesToShow, setMoviesToShow] = React.useState(getCurrentUserMovies());
+
+  const [isLoading, setIsLoading] = React.useState();
   
   React.useEffect(() => {
     filterMovies(getCurrentUserMovies(), searchQuery);
@@ -41,8 +44,10 @@ function SavedMovies(props) {
   }
 
   function handleSearchSubmit(e) {
+    setIsLoading(true);
     e.preventDefault();
     filterMovies(getCurrentUserMovies(), searchQuery);
+    setIsLoading(false);
   }
 
   return (
@@ -57,7 +62,8 @@ function SavedMovies(props) {
         setErrorFromServer={props.setErrorFromServer}
         saveResults={false}
       />
-      <Preloader errorFromServer={props.errorFromServer} isLoading={props.isLoading}/>
+      <Preloader isLoading={isLoading}/>
+      <Errors errorFromServer={props.errorFromServer} />
       <>
         <MoviesCardList 
           moviesData={moviesToShow}
