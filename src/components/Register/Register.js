@@ -1,31 +1,24 @@
 import React from 'react';
 import Form from '../Form/Form';
 import headerLogoPath from '../../images/logo.svg';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import ValidatedForm from '../ValidatedForm/ValidatedForm';
+import { validateRegisterForm } from '../../utils/validators';
+
 
 function Register(props) {
 
-  const [name, setName] = React.useState('');
-  const [email, setEmail] = React.useState('');
-  const [password, setPassword] = React.useState('');
-  const navigate = useNavigate();
+  const {
+    values,
+    errors,
+    handleChange,
+    handleSubmit,
+    changed,
+  } = ValidatedForm({}, props.handleSubmit, validateRegisterForm, props.setErrorFromServer);
 
-  function handleChangeName(e) {
-    setName(e.target.value);
-  }
-
-  function handleChangeEmail(e) {
-    setEmail(e.target.value);
-  }
-
-  function handleChangePassword(e) {
-    setPassword(e.target.value);
-  }
-
-  function handleSubmit(e) {
-    e.preventDefault();
-    navigate("/signin");
-  }
+  React.useEffect(() => {
+    props.setErrorFromServer("");
+  }, []);
 
   return (
     <div className="Register">
@@ -36,28 +29,33 @@ function Register(props) {
         name="login"
         title="Добро пожаловать!"
         buttonText="Зарегистрироваться" 
-        isOpen={props.isOpen} 
-        onClose={props.onClose}
         onSubmit={handleSubmit}
-        isLoading={props.isLoading}
-        loadingText="Регистрация..."
+        errorFromServer={props.errorFromServer}
+        errors={errors}
+        changed={changed}
       >
-        <div class="Form__input-group">
+        <div className="Form__input-group">
           <span className="Form__field-title">Имя</span>
-          <input type="text" className="Form__field" placeholder="" name="register-name" required minLength="2" maxLength="40" value={name || ''} onChange={handleChangeName} />
-          <span className="Form__error-message register-name-error"></span>
+          <input type="text" className={`Form__field ${errors.name && "Form__field_invalid"}`} placeholder="" name="name" required value={values.name || ""} onChange={handleChange} />
+          {errors.name && (
+            <span className="Form__error-message">{errors.name}</span>
+          )}
         </div>
 
-        <div class="Form__input-group">
+        <div className="Form__input-group">
           <span className="Form__field-title">E-mail</span>
-          <input type="email" className="Form__field" placeholder="" name="register-email" required minLength="2" maxLength="40" value={email || ''} onChange={handleChangeEmail} />
-          <span className="Form__error-message register-email-error"></span>
+          <input type="email" className={`Form__field ${errors.email && "Form__field_invalid"}`} placeholder="" name="email" required value={values.email || ""} onChange={handleChange} />
+          {errors.email && (
+            <span className="Form__error-message">{errors.email}</span>
+          )}
         </div>
-
-        <div class="Form__input-group"> 
+          
+        <div className="Form__input-group"> 
           <span className="Form__field-title">Пароль</span>
-          <input type="password" className="Form__field" placeholder="" name="register-password" required minLength="2" maxLength="200" value={password || ''} onChange={handleChangePassword} />
-          <span className="Form__error-message register-password-error">.</span>
+          <input type="password" className={`Form__field ${errors.password && "Form__field_invalid"}`} placeholder="" name="password" required value={values.password || ""} onChange={handleChange} />
+          {errors.password && (
+            <span className="Form__error-message">{errors.password}</span>
+          )}
         </div>
       </Form>
       <div className="Register__link">

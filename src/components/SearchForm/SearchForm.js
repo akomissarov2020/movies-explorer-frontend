@@ -3,22 +3,39 @@ import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
 
 function SearchForm(props) {
 
-  const [filterShortFilms, setFilterShortFilms] = React.useState(true);
-
   function onFilterShortFilmsClick(e) {
     e.preventDefault();
-    setFilterShortFilms(!filterShortFilms);
+    props.setFilterShortFilms(!props.filterShortFilms);
+    if (props.saveResults) {
+      localStorage.setItem('filterShortFilms', JSON.stringify(!props.filterShortFilms));
+    }
   }
+
+  function handleSearchQuery(e) {
+    props.setErrorFromServer("");
+    if (props.saveResults) {
+      localStorage.setItem('searchQuery', JSON.stringify(e.target.value));
+    }
+    props.setSearchQuery(e.target.value)
+  }
+  
 
   return (
     <div className='SearchForm'>
-      <form>
+      <form onSubmit={props.handleSubmit}>
         <div className='SearchForm__field-container'>
-          <input type='text' className='SearchForm__field' placeholder='Фильм' required minLength="3" />
-          <button className='SearchForm__button'>Поиск</button>
+          <input type='text' 
+                 value={props.searchQuery || ''}
+                 className='SearchForm__field' 
+                 placeholder='Фильм'  
+                 onChange={handleSearchQuery}
+                 />
+          <button className={`SearchForm__button ${props.isLoading && "SearchForm__button_inactive" }`}>
+            Поиск
+          </button>
         </div>
         <FilterCheckbox
-          active={filterShortFilms}
+          active={props.filterShortFilms}
           onClick={onFilterShortFilmsClick}
         />
       </form>

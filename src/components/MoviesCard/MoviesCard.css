@@ -3,9 +3,11 @@
   max-width: 360px;
   border-radius: 6px;
   list-style: none;
+  overflow: hidden;
 }
 
 .MoviesCard__image {
+  height: 200px;
   width: 100%;
   background-size: cover;
   background-position: center;
@@ -69,6 +71,11 @@
   background-size: contain;
   align-self: center;
   border: none;
+}
+
+.MoviesCard__saved-icon:hover {
+  opacity: 0.5;
+  cursor: pointer;
 }
 
 .MoviesCard__description {

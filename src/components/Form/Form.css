@@ -24,7 +24,16 @@
 
 .Form__save-button:hover {
     opacity: 0.6;
-  }
+}
+
+.Form__save-button_inactive {
+    background-color: #808080;
+}
+  
+.Form__save-button_inactive:hover {
+    cursor: not-allowed;
+    opacity: 1;
+}
 
 .Form__input-group {
 
@@ -43,6 +52,10 @@
     border: none;
     border-bottom: 1px solid #E8E8E8;;
     margin-bottom: 24px;
+}
+
+.Form__field_invalid {
+    margin-bottom: 5px;
 }
 
 .Form__field:invalid{
@@ -69,8 +82,13 @@
     margin-bottom: 5px;
 }
 
+
+.Form__error-container {
+    margin: 6px 0 0;
+    height: 12px;
+}
+  
 .Form__error-message {
-    display: none;
     font-style: normal;
     font-weight: 400;
     font-size: 10px;
